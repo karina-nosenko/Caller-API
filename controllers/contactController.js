@@ -6,9 +6,10 @@ const addContact = async (req, res) => {
     const config = {
         headers: {"Authorization": `Bearer ${process.env.API_KEY}`}
     }
-    
-    const { email, phone, firstName, lastName } = req.body;
+
+    const { email, phone, firstName, lastName, promptId } = req.body;
     const body = {
+        "tags": [`${promptId}`],
         email,
         phone,
         firstName,
