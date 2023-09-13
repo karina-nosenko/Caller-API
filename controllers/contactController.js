@@ -9,12 +9,14 @@ const addContact = async (req, res) => {
 
     const { email, phone, firstName, lastName, promptId } = req.body;
     const body = {
-        "tags": [`${promptId}`],
         email,
         phone,
         firstName,
-        lastName
+        lastName,
+        "tags": [`${promptId}`]
     };
+
+    console.log(body);
 
     try {
         await axios.post(url, body, config);
